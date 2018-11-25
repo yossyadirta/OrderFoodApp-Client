@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "937382047423",
+    "firebase_url": "https://rpl-foodorder.firebaseio.com",
+    "project_id": "rpl-foodorder",
+    "storage_bucket": "rpl-foodorder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937382047423:android:121e0ab60302f675",
+        "android_client_info": {
+          "package_name": "com.example.yossy.orderfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937382047423-s5kh5gn3sr6p2q5r4ser6n10tgk0t1fe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.yossy.orderfood",
+            "certificate_hash": "20fe63284d9345e591eaf48c9663395d9c5ca7e8"
+          }
+        },
+        {
+          "client_id": "937382047423-1p7q5r9o802tlq0e9hkq2krlij28co3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNf8vI00x8WoNwETV4a1lfwuZNMCKV28k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "937382047423-1p7q5r9o802tlq0e9hkq2krlij28co3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
