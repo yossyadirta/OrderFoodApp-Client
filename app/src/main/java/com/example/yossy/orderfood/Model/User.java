@@ -11,6 +11,8 @@ public class User{
     public User(String noMeja, String password) {
         NoMeja = noMeja;
         Password = password;
+
+        //User will get status
         IsAdmin="false";
     }
 
