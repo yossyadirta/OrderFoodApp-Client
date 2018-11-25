@@ -12,7 +12,6 @@ public class User{
         NoMeja = noMeja;
         Password = password;
 
-        //User will get status
         IsAdmin="false";
     }
 
