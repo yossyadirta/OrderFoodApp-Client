@@ -3,6 +3,7 @@ package com.example.yossy.orderfood.Model;
 public class User{
     private String NoMeja;
     private String Password;
+    private String IsAdmin;
 
     public User() {
     }
@@ -10,6 +11,15 @@ public class User{
     public User(String noMeja, String password) {
         NoMeja = noMeja;
         Password = password;
+        IsAdmin="false";
+    }
+
+    public String getIsAdmin() {
+        return IsAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        IsAdmin = isAdmin;
     }
 
     public String getNoMeja() {

@@ -151,7 +151,7 @@ public class FoodList extends AppCompatActivity {
     }
 
     private void loadSuggest() {
-        foodList.orderByChild("MenuId").equalTo(categoryId)
+        foodList.orderByChild("menuId").equalTo(categoryId)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -172,7 +172,7 @@ public class FoodList extends AppCompatActivity {
 
     private void loadListFood(String categoryId) {
 
-        Query listFoodByCategoryId = foodList.orderByChild("MenuId").equalTo(categoryId);
+        Query listFoodByCategoryId = foodList.orderByChild("menuId").equalTo(categoryId);
         FirebaseRecyclerOptions<Food> options = new FirebaseRecyclerOptions.Builder<Food>()
                 .setQuery(listFoodByCategoryId, Food.class)
                 .build();
