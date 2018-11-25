@@ -114,6 +114,7 @@ public class FoodList extends AppCompatActivity {
         });
     }
 
+    //Search
     private void startSearch(CharSequence text) {
         Query listFoodByMenuId = foodList.orderByChild("Name").equalTo(text.toString());
         FirebaseRecyclerOptions<Food> options = new FirebaseRecyclerOptions.Builder<Food>()
