@@ -116,17 +116,18 @@ public class FoodList extends AppCompatActivity {
 
     //Search
     private void startSearch(CharSequence text) {
-        Query listFoodByMenuId = foodList.orderByChild("Name").equalTo(text.toString());
-        FirebaseRecyclerOptions<Food> options = new FirebaseRecyclerOptions.Builder<Food>()
-                .setQuery(listFoodByMenuId, Food.class)
+        Query searchByName = foodList.orderByChild("Name").equalTo(text.toString());
+        FirebaseRecyclerOptions<Food> foodOptions = new FirebaseRecyclerOptions.Builder<Food>()
+                .setQuery(searchByName, Food.class)
                 .build();
-        searchAdapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
+        searchAdapter = new FirebaseRecyclerAdapter<Food, FoodViewHolder>(foodOptions) {
             @Override
             protected void onBindViewHolder(@NonNull FoodViewHolder viewHolder, int position, @NonNull Food model) {
                 viewHolder.food_name.setText(model.getName());
                 Picasso.with(getBaseContext()).load(model.getImage())
                         .into(viewHolder.food_image);
 
+                final Food local = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
@@ -145,7 +146,7 @@ public class FoodList extends AppCompatActivity {
                 return new FoodViewHolder(itemView);
             }
         };
-        searchAdapter.notifyDataSetChanged();
+        searchAdapter.startListening();
         recyclerView.setAdapter(searchAdapter);
     }
 
@@ -159,6 +160,7 @@ public class FoodList extends AppCompatActivity {
                             Food item = postSnapshot.getValue(Food.class);
                             suggestList.add(item.getName());
                         }
+                        materialSearchBar.setLastSuggestions(suggestList);
                     }
 
                     @Override
@@ -182,7 +184,7 @@ public class FoodList extends AppCompatActivity {
                 Picasso.with(getBaseContext())
                         .load(model.getImage())
                         .into(viewHolder.food_image);
-
+                final Food local = model;
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
@@ -216,5 +218,7 @@ public class FoodList extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         adapter.stopListening();
+        if(searchAdapter !=null)
+            searchAdapter.stopListening();
     }
 }
