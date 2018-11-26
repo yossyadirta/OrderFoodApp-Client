@@ -39,7 +39,10 @@ public class OrderStatus extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadOrders(Common.currentUser.getNoMeja());
+        if(getIntent() == null)
+            loadOrders(Common.currentUser.getNoMeja());
+        else
+            loadOrders(getIntent().getStringExtra("noMeja"));
     }
 
     private void loadOrders(String noMeja) {
